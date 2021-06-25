@@ -9,23 +9,9 @@ import menu from './menu.js';
 const component = (() => {
     //const element = document.createElement('div');
     const container = document.querySelector('#content');
-    //const btn = document.createElement('button');
     const homeTab = document.querySelector('#home');
     const menuTab = document.querySelector('#menu');
     const contactTab = document.querySelector('#contact');
-
-
-    const clickHandler = () => {
-        console.log('hhh');
-    }
-
-    const clickHandler2 = () => {
-        console.log('jjj');
-    }
-
-    const clickHandler3 = () => {
-        console.log('iii');
-    }
 
     let homeDisplay = home.createHome();
     //console.log(homeDisplay, 'homedisplay');
@@ -33,18 +19,40 @@ const component = (() => {
     let contactDisplay = contact.createContact();
     //console.log(contactDisplay, 'contactdisplay');
 
-    const appendContent = (arr) => {
-        for (let i=0; i < arr.length; i++){
-            console.log(arr[i]);
-            container.appendChild(arr[i]);
-        }
+    let menuDisplay = menu.createMenu();
+    //console.log(menu2, 'menudisplay');
+
+    const homeClickHandler = () => {
+        deleteCurrentContent();
+        appendContent(homeDisplay);
     }
 
-    let menu2 = menu.createMenu();
-    console.log(menu2, 'menudisplay');
+    const menuClickHandler = () => {
+        deleteCurrentContent();
+        appendContent(menuDisplay);
+    }
 
-    appendContent(menu2);
-  
+    const contactClickHandler = () => {
+        deleteCurrentContent(); 
+        appendContent(contactDisplay);
+    }
+
+    const appendContent = (arr) => {
+        const div = document.createElement('div');
+        div.classList.add('firstchild');
+        for (let i=0; i < arr.length; i++){
+            div.appendChild(arr[i]);
+        }
+        container.append(div);
+    }
+
+    const deleteCurrentContent = () => {
+        let firstchild = document.querySelector('.firstchild');
+        container.removeChild(firstchild);
+    }
+
+    appendContent(homeDisplay);
+   
     // Lodash, currently included via a script, is required for this line to work
     // Lodash, now imported by this script
     
@@ -58,9 +66,9 @@ const component = (() => {
   
     //return element;
 
-    homeTab.addEventListener('click', clickHandler);
-    menuTab.addEventListener('click', clickHandler2);
-    contactTab.addEventListener('click', clickHandler3);
+    homeTab.addEventListener('click', homeClickHandler);
+    menuTab.addEventListener('click', menuClickHandler);
+    contactTab.addEventListener('click', contactClickHandler);
     
 })();
 
