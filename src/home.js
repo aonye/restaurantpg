@@ -11,9 +11,8 @@ const home = (() => {
 
         const paragraph = document.createElement('p');
         paragraph.textContent = 
-        `The creators of Samurai Sakura burn with a desire to bring authentic sushi from Kyuushu, Japan to you; 
-         The knowledge and passion for top quality seafood comes from years of working at some of the world's most
-         prestigious sushi restaurants, including Sukiyabashi Jiro.`;
+        `The creators of Samurai Sakura burn with a desire to bring authentic sushi from Kyuushu, Japan to you;
+         Their knowledge and passion for top quality seafood comes from years of working at some of the world's most prestigious sushi restaurants, including Sukiyabashi Jiro.`;
 
         let arr = new Array(h1, img, paragraph);
         
