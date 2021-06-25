@@ -21,6 +21,9 @@ li:hover{
 #content {
     display: block;
     text-align: center;
+    width: 75%;
+    min-height: 600px;
+    margin: auto;
 }
 
 img {
@@ -31,4 +34,19 @@ img {
     height: 50%;
     object-fit: cover;
     overflow: hidden;
+}
+
+.grid {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 20px;
+    column-gap: 20px;
+}
+
+#menusushi {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
 }
